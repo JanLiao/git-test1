@@ -4,7 +4,7 @@ from api.error_consts import ErrorConsts
 from model.db_read_manager import get_read_conn
 from model.db_write_manager import get_write_conn
 
-# Version v1.0
+# Version v1.0.0
 
 class UserDao:
     def __init__(self):
