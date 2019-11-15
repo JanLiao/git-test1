@@ -1,0 +1,39 @@
+<!--<form action="/login?redirect={{redirect_url}}" method="post">
+    请输入用户名：<input type="text" name="user_name" id="user_name" value="" />
+    请输入密码：<input type="text" name="password" id="password" value="" />
+    <input type="submit" value="提交" />
+    </br>
+</form>-->
+
+请输入用户名：<input type="text" name="user_name" id="user_name" value="" />
+    请输入密码：<input type="text" name="password" id="password" value="" />
+    <input type="submit" value="提交" onclick="loginIn()"/>
+<script src="/static/jquery.min.js"></script>
+<script>
+    function loginIn() {
+        $.ajax({
+        	/* headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }, */
+            type: "POST",
+            url: "/login?redirect={{redirect_url}}",
+            // 预期服务器响应的数据类型
+            dataType: "JSON",
+            data: {"user_name": 'jan', "password": "1"},
+            /*xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,*/
+            success: function (result) {
+            	console.log(result['msg']);
+            	if(result['code'] == 0){
+            		window.location.href=result['url'];
+            	}
+                //console.log(eval("'" + arg + "'"));
+            },
+            error: function(ht){
+            	console.log("error");
+            }
+        })
+    }
+</script>

@@ -1,0 +1,2 @@
+work_day:monday,tuesday
+work_time:8:15,9:15
